@@ -170,7 +170,7 @@ if __name__ == '__main__':
             f"Train Loss: {train_loss:.4f}, Train Acc: {train_acc:.4f},train f1: {train_f1:.4f},train precision: {train_precision:.4f}, train_recall: {train_recall:.4f}")
         print(
             f"Val Loss: {val_loss:.4f}, Val Acc: {val_acc:.4f},val f1: {val_f1:.4f},val precision: {val_precision:.4f},val recall: {val_recall:.4f}")
-        # 保存模型权重
+        
         if val_f1 >= best_f1:
             best_f1 = val_f1
             print('find best model in epoch %d with F score %.4f' % (epoch + 1, best_f1))
@@ -225,7 +225,7 @@ if __name__ == '__main__':
 
     for i, (train_precision, val_precision) in enumerate(zip(train_precisiones, val_precisiones)):
         plt.text(i, train_precision, f'{train_precision:.4f}', fontsize=8, ha='center',
-                 va='bottom')  # 标出训练集 precision 值
+                 va='bottom') 
         plt.text(i, val_precision, f'{val_precision:.4f}', fontsize=8, ha='center', va='top')
     plt.xlabel('Epoch')
     plt.ylabel('Precision')
@@ -321,4 +321,5 @@ if __name__ == '__main__':
         file.write(str(model) + "\n")
 
     print(f"File created and content written: {os.path.join(output_dir, arg_filename)}")
+
 
